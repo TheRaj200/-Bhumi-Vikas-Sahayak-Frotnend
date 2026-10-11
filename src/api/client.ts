@@ -36,14 +36,33 @@ import type {
 export { ApiClientError }
 
 export const USE_MOCKS = import.meta.env.VITE_USE_MOCKS === 'true'
-export const API_BASE = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/+$/, '')
+
+export function getApiBase(): string {
+  const envUrl = import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_BACKEND_URL
+  if (envUrl) return envUrl.replace(/\/+$/, '')
+  if (typeof window !== 'undefined') {
+    const stored = localStorage.getItem('niyamsetu_api_base')
+    if (stored) return stored.replace(/\/+$/, '')
+  }
+  return ''
+}
+
+export function setApiBase(url: string) {
+  if (typeof window !== 'undefined') {
+    localStorage.setItem('niyamsetu_api_base', url.trim().replace(/\/+$/, ''))
+    window.location.reload()
+  }
+}
+
+export const API_BASE = getApiBase()
 
 type Method = 'GET' | 'POST' | 'PUT' | 'PATCH'
 
 async function request<T>(method: Method, path: string, body?: unknown): Promise<T> {
   if (USE_MOCKS) return mockRequest<T>(method, path, body)
 
-  const url = path.startsWith('http') ? path : `${API_BASE}${path}`
+  const base = getApiBase()
+  const url = path.startsWith('http') ? path : `${base}${path}`
 
   let res: Response
   try {
@@ -53,7 +72,7 @@ async function request<T>(method: Method, path: string, body?: unknown): Promise
       body: body === undefined ? undefined : JSON.stringify(body),
     })
   } catch {
-    throw new ApiClientError(0, 'NETWORK', 'Cannot reach the NiyamSetu server.')
+    throw new ApiClientError(0, 'NETWORK', 'Cannot reach the Bhumi Vikas Sahayak server.')
   }
 
   const data: unknown = await res.json().catch(() => null)
@@ -107,5 +126,7 @@ export const addLookupTiming = (body: LookupTimingRequest) => request<LookupTimi
 export const getLookupTimingSummary = () => request<LookupTimingSummary>('GET', '/api/metrics/lookup-timings/summary')
 
 // §24
-export const pdfUrl = (page?: number | null, lang: 'en' | 'hi' = 'en') =>
-  page ? `${API_BASE}/pdf/${lang}.pdf#page=${page}` : `${API_BASE}/pdf/${lang}.pdf`
+export const pdfUrl = (page?: number | null, lang: 'en' | 'hi' = 'en') => {
+  const base = getApiBase()
+  return page ? `${base}/pdf/${lang}.pdf#page=${page}` : `${base}/pdf/${lang}.pdf`
+}
