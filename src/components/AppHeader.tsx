@@ -5,10 +5,10 @@ import { hrefFor, type Route } from '../lib/router'
 import { MpGovLogo } from './MpGovLogo'
 
 const NAV: { route: Route; key: StringKey; match: Route['page'][]; label_hi: string }[] = [
-  { route: { page: 'ask' }, key: 'nav_ask', match: ['ask'], label_hi: 'पूछताछ' },
+  { route: { page: 'ask' }, key: 'nav_ask', match: ['ask'], label_hi: 'नियम पूछें' },
   { route: { page: 'cases' }, key: 'nav_cases', match: ['cases', 'case', 'report'], label_hi: 'केस समीक्षा' },
-  { route: { page: 'rule-lab' }, key: 'nav_rule_lab', match: ['rule-lab', 'rule'], label_hi: 'नियम लैब' },
-  { route: { page: 'benchmark' }, key: 'nav_benchmark', match: ['benchmark'], label_hi: 'बेंचमार्क' },
+  { route: { page: 'rule-lab' }, key: 'nav_rule_lab', match: ['rule-lab', 'rule'], label_hi: 'नियम' },
+  { route: { page: 'upload' }, key: 'nav_upload', match: ['upload'], label_hi: 'राजपत्र अपलोड' },
 ]
 
 interface AppHeaderProps {
@@ -35,8 +35,8 @@ export function AppHeader({ route }: AppHeaderProps) {
           <MpGovLogo className="h-11 w-11 drop-shadow-xs transition-transform group-hover:scale-105" />
           <div className="border-l border-slate-200 pl-3">
             <div className="flex items-center gap-2">
-              <span className="text-lg font-black tracking-tight text-slate-900 group-hover:text-indigo-900 transition-colors">
-                {lang === 'hi' ? 'नियमसेतु' : 'NiyamSetu'}
+              <span className="text-base sm:text-lg font-black tracking-tight text-slate-900 group-hover:text-indigo-900 transition-colors">
+                {lang === 'hi' ? 'भूमि विकास सहायक' : 'Bhumi Vikas Sahayak'}
               </span>
               <span className="rounded bg-red-50 px-1.5 py-0.5 text-[10px] font-extrabold text-red-800 border border-red-200 uppercase tracking-wide">
                 BMC Bhopal

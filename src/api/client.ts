@@ -36,15 +36,18 @@ import type {
 export { ApiClientError }
 
 export const USE_MOCKS = import.meta.env.VITE_USE_MOCKS === 'true'
+export const API_BASE = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/+$/, '')
 
 type Method = 'GET' | 'POST' | 'PUT' | 'PATCH'
 
 async function request<T>(method: Method, path: string, body?: unknown): Promise<T> {
   if (USE_MOCKS) return mockRequest<T>(method, path, body)
 
+  const url = path.startsWith('http') ? path : `${API_BASE}${path}`
+
   let res: Response
   try {
-    res = await fetch(path, {
+    res = await fetch(url, {
       method,
       headers: body === undefined ? undefined : { 'content-type': 'application/json' },
       body: body === undefined ? undefined : JSON.stringify(body),
@@ -104,4 +107,5 @@ export const addLookupTiming = (body: LookupTimingRequest) => request<LookupTimi
 export const getLookupTimingSummary = () => request<LookupTimingSummary>('GET', '/api/metrics/lookup-timings/summary')
 
 // §24
-export const pdfUrl = (page?: number | null, lang: 'en' | 'hi' = 'en') => (page ? `/pdf/${lang}.pdf#page=${page}` : `/pdf/${lang}.pdf`)
+export const pdfUrl = (page?: number | null, lang: 'en' | 'hi' = 'en') =>
+  page ? `${API_BASE}/pdf/${lang}.pdf#page=${page}` : `${API_BASE}/pdf/${lang}.pdf`

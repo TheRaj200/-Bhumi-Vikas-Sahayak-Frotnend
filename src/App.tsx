@@ -6,6 +6,7 @@ import { CasesPage } from './features/cases/CasesPage'
 import { ReportPage } from './features/report/ReportPage'
 import { RuleDetailPage } from './features/rulelab/RuleDetailPage'
 import { RuleLabPage } from './features/rulelab/RuleLabPage'
+import { UploadPage } from './features/upload/UploadPage'
 import { LangProvider } from './i18n/LangProvider'
 import { useHashRoute, type Route } from './lib/router'
 
@@ -23,6 +24,8 @@ function Page({ route }: { route: Route }) {
       return <RuleLabPage />
     case 'rule':
       return <RuleDetailPage ruleId={route.ruleId} />
+    case 'upload':
+      return <UploadPage />
     case 'benchmark':
       return <BenchmarkPage />
   }

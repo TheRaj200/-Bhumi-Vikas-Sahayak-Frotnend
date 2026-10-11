@@ -41,7 +41,7 @@ export function ReportPage({ id }: ReportPageProps) {
             Preliminary Building Plan Compliance Report
           </h1>
           <p className="text-sm font-medium text-slate-700">
-            NiyamSetu (नियमसेतु) — Bhopal Municipal Corporation Plan Review
+            Bhumi Vikas Sahayak (भूमि विकास सहायक) — Bhopal Municipal Corporation Plan Review
           </p>
         </div>
 

@@ -88,12 +88,15 @@ export function CaseReviewPage({ id }: CaseReviewPageProps) {
       {/* Top Action Header */}
       <div className="flex flex-wrap items-center justify-between gap-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-xs">
         <div>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2.5">
+            <span className="rounded-xl bg-orange-50 px-2.5 py-1 text-xs font-bold text-orange-800 border border-orange-200">
+              🏛️ BMC Plan Review
+            </span>
             <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">
               {detail?.application.title || `Case ${id}`}
             </h1>
             {checkResult && (
-              <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-bold text-indigo-700 ring-1 ring-indigo-200">
+              <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700 ring-1 ring-emerald-200">
                 ✓ Evaluated ({checkResult.findings?.length || 0} Findings)
               </span>
             )}

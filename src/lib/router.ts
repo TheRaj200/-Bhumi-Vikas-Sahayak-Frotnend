@@ -16,6 +16,7 @@ export type Route =
   | { page: 'report'; id: string }
   | { page: 'rule-lab' }
   | { page: 'rule'; ruleId: string }
+  | { page: 'upload' }
   | { page: 'benchmark' }
 
 export function parseHash(hash: string): Route {
@@ -26,6 +27,7 @@ export function parseHash(hash: string): Route {
   if (first === 'cases') return { page: 'cases' }
   if (first === 'rule-lab' && second) return { page: 'rule', ruleId: second }
   if (first === 'rule-lab') return { page: 'rule-lab' }
+  if (first === 'upload') return { page: 'upload' }
   if (first === 'benchmark') return { page: 'benchmark' }
   return { page: 'ask' }
 }
@@ -44,6 +46,8 @@ export function hrefFor(route: Route): string {
       return '#/rule-lab'
     case 'rule':
       return `#/rule-lab/${encodeURIComponent(route.ruleId)}`
+    case 'upload':
+      return '#/upload'
     case 'benchmark':
       return '#/benchmark'
   }

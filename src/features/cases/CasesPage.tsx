@@ -102,6 +102,33 @@ export function CasesPage() {
         </a>
       </div>
 
+      {/* Visual Town Planning Desk Hero Banner */}
+      <div className="relative overflow-hidden rounded-3xl bg-slate-950 p-6 sm:p-8 text-white shadow-xl ring-1 ring-white/10">
+        <div className="absolute inset-y-0 right-0 w-full sm:w-1/2 pointer-events-none">
+          <img
+            src="/images/plan_desk.jpg"
+            alt="Town Planning Plan Review Examination Desk"
+            className="h-full w-full object-cover object-center opacity-30 sm:opacity-45"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-transparent" />
+        </div>
+
+        <div className="relative z-10 max-w-xl space-y-2">
+          <div className="inline-flex items-center gap-2 rounded-full bg-indigo-500/20 px-3 py-1 text-[11px] font-bold text-indigo-200 border border-indigo-400/30">
+            <span>📐</span>
+            <span>{lang === 'hi' ? 'नगर तथा ग्राम निवेश • नक्शा समीक्षा पटल' : 'Town & Country Planning • Plan Review Desk'}</span>
+          </div>
+          <h2 className="text-2xl font-black text-white sm:text-3xl">
+            {lang === 'hi' ? '2D आर्किटेक्चरल नक्शा व सेटबैक समीक्षा' : '2D Architectural Plan & Setback Review'}
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            {lang === 'hi'
+              ? 'प्लॉट चौड़ाई, गहराई, फ्रंट-रियर सेटबैक और रोड विड्थ के आधार पर MP Bhumi Vikas Rules, 2012 के तहत स्वचालित विसंगति जांच।'
+              : 'Automated municipal regulatory check for plot boundaries, FAR, and setbacks against official Madhya Pradesh gazette rules.'}
+          </p>
+        </div>
+      </div>
+
       {/* Preset Benchmark Sample Cases Grid */}
       <div className="space-y-3">
         <h2 className="text-xs font-bold uppercase tracking-wider text-slate-400">

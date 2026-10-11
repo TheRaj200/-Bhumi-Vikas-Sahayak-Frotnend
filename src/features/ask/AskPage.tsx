@@ -205,29 +205,42 @@ export function AskPage() {
   return (
     <div className="mx-auto max-w-7xl">
       <div className="no-print space-y-8 animate-fade-in">
-        {/* Hero Header */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-950 via-slate-900 to-indigo-900 p-8 text-white shadow-xl ring-1 ring-white/10">
-        <div className="absolute -right-10 -top-10 h-64 w-64 rounded-full bg-indigo-500/10 blur-3xl" />
-        <div className="absolute -bottom-10 -left-10 h-64 w-64 rounded-full bg-emerald-500/10 blur-3xl" />
-
-        <div className="relative z-10 flex flex-wrap items-center justify-between gap-6">
-          <div className="max-w-2xl space-y-2">
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold tracking-wide text-indigo-200 backdrop-blur-md">
-              <span className="h-2 w-2 rounded-full bg-emerald-400" />
-              {lang === 'hi' ? 'भोपाल नगर निगम भवन अनुज्ञा काउंटर' : 'Bhopal Municipal Corporation Building Permission Counter'}
-            </div>
-            <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-white">
-              {lang === 'hi' ? 'भवन नियम सहायक (AI Assistant)' : 'Building Rules Assistant'}
-            </h1>
-            <p className="text-sm leading-relaxed text-slate-300">
-              {lang === 'hi'
-                ? 'मध्य प्रदेश भूमि विकास नियम, 2012 के तहत तुरंत उत्तर, सटीक नियम संख्या और आधिकारिक राजपत्र उद्धरण खोजें।'
-                : 'Deterministic regulatory assistant grounded in MP Bhumi Vikas Rules, 2012 with side-by-side Gazette PDF verification.'}
-            </p>
+        {/* Hero Header with Authentic MP Secretariat Banner */}
+        <div className="relative overflow-hidden rounded-3xl bg-slate-950 p-7 sm:p-9 text-white shadow-xl ring-1 ring-white/10">
+          {/* Background Government Building Photo on the right with gradient overlay */}
+          <div className="absolute inset-y-0 right-0 w-full sm:w-3/5 pointer-events-none">
+            <img
+              src="/images/mp_secretariat.jpg"
+              alt="Vallabh Bhawan, MP Government Secretariat"
+              className="h-full w-full object-cover object-center opacity-30 sm:opacity-40"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-transparent" />
           </div>
 
-          {/* Mode Switcher */}
-          <div className="flex rounded-2xl bg-white/10 p-1.5 backdrop-blur-md ring-1 ring-white/15">
+          <div className="relative z-10 flex flex-wrap items-center justify-between gap-6">
+            <div className="max-w-2xl space-y-2.5">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-orange-500/20 px-3 py-1 text-[11px] font-bold text-orange-200 border border-orange-400/30">
+                  <span>🏛️</span>
+                  <span>{lang === 'hi' ? 'वल्लभ भवन, भोपाल • मध्य प्रदेश शासन' : 'Vallabh Bhawan, Bhopal • Govt of MP'}</span>
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold text-indigo-200 backdrop-blur-md">
+                  <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                  {lang === 'hi' ? 'भोपाल नगर निगम भवन अनुज्ञा काउंटर' : 'Bhopal Municipal Corporation Building Permission Desk'}
+                </span>
+              </div>
+              <h1 className="text-3xl font-black tracking-tight sm:text-4xl text-white">
+                {lang === 'hi' ? 'भवन नियम सहायक (AI Assistant)' : 'Building Rules Assistant'}
+              </h1>
+              <p className="text-sm leading-relaxed text-slate-300">
+                {lang === 'hi'
+                  ? 'मध्य प्रदेश भूमि विकास नियम, 2012 के तहत तुरंत उत्तर, सटीक नियम संख्या और आधिकारिक राजपत्र उद्धरण खोजें।'
+                  : 'Deterministic regulatory assistant grounded in MP Bhumi Vikas Rules, 2012 with side-by-side Gazette PDF verification.'}
+              </p>
+            </div>
+
+            {/* Mode Switcher */}
+            <div className="flex rounded-2xl bg-white/10 p-1.5 backdrop-blur-md ring-1 ring-white/15">
             <button
               type="button"
               onClick={() => setActiveTab('ask')}

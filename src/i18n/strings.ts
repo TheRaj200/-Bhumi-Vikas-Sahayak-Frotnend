@@ -1,7 +1,7 @@
 // All UI text in { en, hi }. Use the glossary in docs/DOMAIN_RULES.md for Hindi terms.
 
 export const STRINGS = {
-  app_name: { en: 'NiyamSetu', hi: 'नियमसेतु' },
+  app_name: { en: 'Bhumi Vikas Sahayak', hi: 'भूमि विकास सहायक' },
   app_tagline: { en: 'Building Regulation Compiler & Plan Review Assistant', hi: 'भवन नियम संकलक एवं नक्शा समीक्षा सहायक' },
   version_badge: { en: 'Rules consolidated to 6 March 2025', hi: '6 मार्च 2025 तक संशोधित नियम' },
   lang_toggle_label: { en: 'Language', hi: 'भाषा' },
@@ -22,9 +22,10 @@ export const STRINGS = {
   print: { en: 'Print / Save as PDF', hi: 'प्रिंट / PDF के रूप में सहेजें' },
   printed_on: { en: 'Printed on', hi: 'मुद्रण तिथि' },
 
-  nav_ask: { en: 'Ask the rules', hi: 'नियम पूछें' },
+  nav_ask: { en: 'Ask Rule', hi: 'नियम पूछें' },
   nav_cases: { en: 'Case review', hi: 'केस समीक्षा' },
-  nav_rule_lab: { en: 'Rule Lab', hi: 'नियम लैब' },
+  nav_rule_lab: { en: 'Rules', hi: 'नियम' },
+  nav_upload: { en: 'Upload Rulebook', hi: 'राजपत्र अपलोड' },
   nav_benchmark: { en: 'Benchmark', hi: 'बेंचमार्क' },
 
   health_ok: { en: 'Server connected', hi: 'सर्वर जुड़ा है' },
@@ -42,7 +43,7 @@ export const STRINGS = {
   status_not_found: { en: 'Not found in provided sources', hi: 'दिए गए स्रोतों में नहीं मिला' },
   status_evidence_only: { en: 'Evidence only (AI unavailable)', hi: 'केवल प्रमाण (AI उपलब्ध नहीं)' },
 
-  error_network: { en: 'Cannot reach the NiyamSetu server. Is the backend running?', hi: 'नियमसेतु सर्वर से संपर्क नहीं हो पा रहा। क्या बैकएंड चल रहा है?' },
+  error_network: { en: 'Cannot reach the Bhumi Vikas Sahayak server. Is the backend running?', hi: 'भूमि विकास सहायक सर्वर से संपर्क नहीं हो पा रहा। क्या बैकएंड चल रहा है?' },
   error_db: { en: 'Database is not connected. Cases, reports and verification need it.', hi: 'डेटाबेस नहीं जुड़ा है। केस, रिपोर्ट और सत्यापन के लिए यह आवश्यक है।' },
   error_llm: { en: 'AI service is down — use rule search below.', hi: 'AI सेवा उपलब्ध नहीं — नीचे नियम खोज का उपयोग करें।' },
   error_not_implemented: { en: 'This feature is not built on the server yet.', hi: 'यह सुविधा सर्वर पर अभी नहीं बनी है।' },
